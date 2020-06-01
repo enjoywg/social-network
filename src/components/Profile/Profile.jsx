@@ -1,8 +1,9 @@
 import React from 'react';
+import c from './Profile.module.css';
 
 function Profile () {
     return (
-        <div className="content">
+        <div className={c.content}>
             <div>
                 <img src="https://html5css.ru/css/img_forest.jpg" />
             </div>
@@ -15,11 +16,11 @@ function Profile () {
                     Yor post typing
                 </div>
             </div>
-            <div>
-                <div>
+            <div className={c.posts}>
+                <div className={c.item}>
                     Post1
                 </div>
-                <div>
+                <div className={c.item}>
                     Post2
                 </div>
             </div>
