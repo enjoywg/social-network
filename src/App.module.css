@@ -1,4 +1,4 @@
-.app-wrapper {
+.app_wrapper {
     margin: 0 auto;
     display: grid;
     width: 1200px;
@@ -9,19 +9,6 @@
     grid-template-columns: 2fr 10fr;
 
 }
-
-.header {
-    grid-area: h;
-    background-color: #FF6648;
-}
-.header img {
-    width: 100px;
-}
-.nav {
-    grid-area: n;
-    background-color: #FF6648;
-}
-
-.content {
+.app_wrapper_content {
     grid-area: c;
 }
