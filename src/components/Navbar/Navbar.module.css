@@ -10,3 +10,15 @@
 .item a.active {
     color: red;
 }
+.friends {
+    margin-top: 20px;
+    color: white;
+}
+.friend {
+    float: left;
+    margin: 3px;
+}
+.friend img {
+    width: 35px;
+    border-radius: 35px;
+}

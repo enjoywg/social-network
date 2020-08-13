@@ -1,8 +1,12 @@
 import React from 'react';
 import c from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
+import {SidebarType} from "../../redux/state";
 
-function Navbar() {
+function Navbar(props: SidebarType) {
+
+    let friendsElements = props.friends.map(f => <div className={c.friend}><img src={f.img}/></div>)
+
     return (
         <nav className={c.nav}>
             <div className={c.item}>
@@ -19,6 +23,12 @@ function Navbar() {
             </div>
             <div className={c.item}>
                 <NavLink to="/settings" activeClassName={c.active}>Settings</NavLink>
+            </div>
+            <div className={c.friends}>
+                <div>Friends</div>
+                <div>
+                    {friendsElements}
+                </div>
             </div>
         </nav>
     );

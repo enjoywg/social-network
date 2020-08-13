@@ -4,16 +4,14 @@
 }
 .dialogsItems {
     padding: 20px;
+    color: black;
 }
-.dialog {
-
+.dialogItems a {
+    color: black;
 }
 .dialogsItems .active {
     color: blue;
 }
 .messages {
     padding: 20px;
-}
-.message {
-
 }
