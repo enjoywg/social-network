@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../index";
+
 export type PostType = {
     id: number
     message: string
@@ -19,6 +21,7 @@ export type SidebarType = {
 }
 export type ProfilePageType = {
     posts: Array<PostType>
+    newPostTextTemp: string
 }
 export type DialogsPageType = {
     dialogs: Array<DialogType>
@@ -30,7 +33,7 @@ export type StateType = {
     sidebar: SidebarType
 }
 
-let state: StateType= {
+let state: StateType = {
     profilePage: {
         posts: [
             {id: 1, message: 'Hi', likesCount: 0},
@@ -38,7 +41,8 @@ let state: StateType= {
             {id: 3, message: 'Go to drink', likesCount: 22},
             {id: 4, message: 'I never sleep', likesCount: 1},
             {id: 5, message: 'I want to eat', likesCount: 1000}
-        ]
+        ],
+        newPostTextTemp: ""
     },
     dialogsPage: {
         dialogs: [
@@ -63,6 +67,18 @@ let state: StateType= {
             {img: "https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg"},
         ]
     }
+}
+export const addPost = () => {
+    const newPost: PostType = {
+        id: 6, message: state.profilePage.newPostTextTemp, likesCount: 0,
+    }
+    state.profilePage.posts.push(newPost)
+    state.profilePage.newPostTextTemp = ""
+    rerenderEntireTree(state)
+}
+export const updateNewPostTextTemp = (NewPostTextTemp: string) => {
+    state.profilePage.newPostTextTemp = NewPostTextTemp
+    rerenderEntireTree(state)
 }
 
 export default state
