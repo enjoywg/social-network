@@ -9,21 +9,29 @@ import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import {Route} from 'react-router-dom';
-import state, {addPost, updateNewPostTextTemp} from './redux/state'
+import {StoreType} from './redux/state'
 
-function App() {
+type PropsType = {
+    store: StoreType
+}
+function App(props: PropsType) {
+    const state = props.store.getState()
     return (
             <div className={c.app_wrapper}>
                 <Header/>
                 <Navbar friends={state.sidebar.friends}/>
                 <div className={c.app_wrapper_content}>
                     <Route path="/profile" render={ () => <Profile posts={state.profilePage.posts}
-                                                                   addPost={addPost}
                                                                    newPostTextTemp={state.profilePage.newPostTextTemp}
-                                                                   updateNewPostTextTemp={updateNewPostTextTemp}
+                                                                   dispatch={props.store.dispatch.bind(props.store)}
+
                     />}/>
                     <Route path="/dialogs" render={ () => <Dialogs dialogs={state.dialogsPage.dialogs}
-                                                                   messages={state.dialogsPage.messages}/>}/>
+                                                                   messages={state.dialogsPage.messages}
+                                                                   newMessageText={state.dialogsPage.newMessageText}
+                                                                   dispatch={props.store.dispatch.bind(props.store)}
+
+                    />}/>
                     <Route path="/news" render={ () => <News/>}/>
                     <Route path="/music" render={ () => <Music/>}/>
                     <Route path="/settings" render={ () => <Settings/>}/>
