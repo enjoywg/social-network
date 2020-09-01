@@ -2,7 +2,7 @@ import React, {ChangeEvent} from 'react';
 import c from './MyPosts.module.css';
 import Post from "./Post/Post";
 import {ProfilePageType} from "../Profile";
-import {addPostActionCreator, updateNewPostTextTempActionCreator} from "../../../redux/state";
+import {addPostActionCreator, updateNewPostTextTempActionCreator} from "../../../redux/profile-reducer";
 
 function MyPosts(props: ProfilePageType) {
     let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} id={p.id}/>)
