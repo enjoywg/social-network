@@ -9,10 +9,10 @@ import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import {Route} from 'react-router-dom';
-import {StoreType} from './redux/state'
+import {ReduxStoreType} from './redux/redux-store'
 
 type PropsType = {
-    store: StoreType
+    store: ReduxStoreType
 }
 function App(props: PropsType) {
     const state = props.store.getState()
