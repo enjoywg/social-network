@@ -3,17 +3,16 @@ import c from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import MessageItem from './MessageItem/MessageItem';
 import {
-    ActionsType,
     DialogType,
     MessageType,
     } from '../../redux/store';
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogs-reducer";
 
 type PropsType = {
     dialogs: Array<DialogType>
     messages: Array<MessageType>
     newMessageText: string
-    dispatch: (action: ActionsType) => void
+    addMessage: () => void
+    onMessageChange: (text: string) => void
 }
 function Dialogs(props: PropsType) {
 
@@ -21,10 +20,10 @@ function Dialogs(props: PropsType) {
     let messagesElements = props.messages.map(m => <MessageItem id={m.id} message={m.message}/>)
 
     const addMessage = () => {
-        props.dispatch(addMessageActionCreator())
+        props.addMessage()
     }
     const onMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch(updateNewMessageTextActionCreator(e.currentTarget.value))
+        props.onMessageChange(e.currentTarget.value)
     }
     return (
         <div className={c.dialogs}>
