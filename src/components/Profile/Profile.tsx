@@ -9,11 +9,11 @@ type PropsType = {
     store: ReduxStoreType
 }
 
-function Profile(props: PropsType) {
+function Profile() {
     return (
         <div>
             <ProfileInfo/>
-            <MyPostsContainer store={props.store} />
+            <MyPostsContainer/>
         </div>
     );
 }

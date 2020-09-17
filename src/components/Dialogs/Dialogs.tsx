@@ -33,7 +33,7 @@ function Dialogs(props: PropsType) {
             <div className={c.messages}>
                 <div>{messagesElements}</div>
                 <div>
-                    <div><textarea value={props.newMessageText} onChange={onMessageChange}></textarea></div>
+                    <div><textarea value={props.newMessageText} onChange={onMessageChange}/></div>
                     <div>
                         <button onClick={addMessage}>Add message</button>
                     </div>
