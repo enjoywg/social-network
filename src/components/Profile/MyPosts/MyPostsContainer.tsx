@@ -1,4 +1,4 @@
-import React, {Dispatch} from 'react';
+import {Dispatch} from 'react';
 import {addPostActionCreator, updateNewPostTextTempActionCreator} from "../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
 import {ActionsType, StateType} from "../../../redux/store";

@@ -1,4 +1,4 @@
-import React, {Dispatch} from 'react';
+import {Dispatch} from 'react';
 import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";

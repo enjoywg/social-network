@@ -5,7 +5,7 @@ import {SidebarType} from "../../redux/store";
 
 function Navbar(props: SidebarType) {
 
-    let friendsElements = props.friends.map(f => <div className={c.friend}><img src={f.img}/></div>)
+    let friendsElements = props.friends.map(f => <div key={f.id} className={c.friend}><img src={f.img}/></div>)
 
     return (
         <nav className={c.nav}>
@@ -14,6 +14,9 @@ function Navbar(props: SidebarType) {
             </div>
             <div className={c.item}>
                 <NavLink to="/dialogs" activeClassName={c.active}>Messages</NavLink>
+            </div>
+            <div className={c.item}>
+                <NavLink to="/users" activeClassName={c.active}>Users</NavLink>
             </div>
             <div className={c.item}>
                 <NavLink to="/news" activeClassName={c.active}>News</NavLink>

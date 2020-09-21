@@ -1,6 +1,7 @@
 import {addPostActionCreator, profileReducer, updateNewPostTextTempActionCreator} from "./profile-reducer";
 import {addMessageActionCreator, dialogsReducer, updateNewMessageTextActionCreator} from "./dialogs-reducer";
 import {sidebarReducer} from "./sidebar-reducer";
+import {followAC, setUsersAC, unfollowAC, UsersType} from "./users-reducer";
 
 export type PostType = {
     id: number
@@ -16,6 +17,7 @@ export type MessageType = {
     message: string
 }
 export type FriendType = {
+    id: number
     img: string
 }
 export type SidebarType = {
@@ -34,6 +36,7 @@ export type StateType = {
     profilePage: ProfilePageType
     dialogsPage: DialogsPageType
     sidebar: SidebarType
+    usersPage: UsersType
 }
 export type StoreType = {
     _state: StateType
@@ -48,8 +51,12 @@ export type ActionsType =
     | ReturnType<typeof updateNewPostTextTempActionCreator>
     | ReturnType<typeof updateNewMessageTextActionCreator>
     | ReturnType<typeof addMessageActionCreator>
+    | ReturnType<typeof followAC>
+    | ReturnType<typeof unfollowAC>
+    | ReturnType<typeof setUsersAC>
+/*
 
-let store: StoreType = {
+let store = {
     _state: {
         profilePage: {
             posts: [
@@ -80,9 +87,9 @@ let store: StoreType = {
         },
         sidebar: {
             friends: [
-                {img: "https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg"},
-                {img: "https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg"},
-                {img: "https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg"},
+                {id: 1, img: "https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg"},
+                {id: 2, img: "https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg"},
+                {id: 3, img: "https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg"},
             ]
         }
     },
@@ -103,4 +110,4 @@ let store: StoreType = {
     }
 }
 
-export default store
+export default store*/
