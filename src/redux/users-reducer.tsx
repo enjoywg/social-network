@@ -4,25 +4,24 @@ type LocationType = {
     city: string
     country: string
 }
+type PhotosType = {
+    small: string | null
+    large: string | null
+}
 export type UserType = {
     id: number
-    fullName: string
+    name: string
     status: string
-    location: LocationType
     followed: boolean
-    ava: string
+    uniqueUrlName: string | null
+    photos: PhotosType
 }
 export type UsersType = {
     users: Array<UserType>
 }
 let initialState: UsersType = {
     users: [
-        {id: 1, fullName: 'Igor', status: "Eating", location: {city: "Lisbon", country: "Portugal"}, followed: true,
-        ava: "https://www.ejin.ru/wp-content/uploads/2019/01/tzddik5uq3o.jpg"},
-        {id: 2, fullName: 'Oleg', status: "Writing", location: {city: "Warsaw", country: "Poland"}, followed: false,
-            ava: "https://www.ejin.ru/wp-content/uploads/2019/01/tzddik5uq3o.jpg"},
-        {id: 3, fullName: 'Sveta', status: "Reading", location: {city: "Lviv", country: "Ukraine"}, followed: true,
-            ava: "https://www.ejin.ru/wp-content/uploads/2019/01/tzddik5uq3o.jpg"},
+
     ]
 }
 
