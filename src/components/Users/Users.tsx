@@ -1,57 +1,34 @@
 import React from "react";
 import {UserType} from "../../redux/users-reducer";
 import c from "./Users.module.css";
-import axios from 'axios'
 import ava from '../../assets/images/ava.jpg'
 
 type PropsType = {
     users: Array<UserType>
+    pageSize: number
+    totalUsersCount: number
+    currentPage: number
     follow: (userId: number) => void
     unfollow: (userId: number) => void
-    setUsers: (users: Array<UserType>) => void
+    onPageChange: (p: number) => void
 }
 
 export function Users(props: PropsType) {
-    let getUsers = () => {
-        if (props.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users")
-                .then(response => {
-                    props.setUsers(response.data.items)
-                })
-
-            /*props.setUsers(
-                [
-                    {
-                        id: 1,
-                        fullName: 'Igor',
-                        status: "Eating",
-                        location: {city: "Lisbon", country: "Portugal"},
-                        followed: true,
-                        ava: "https://www.ejin.ru/wp-content/uploads/2019/01/tzddik5uq3o.jpg"
-                    },
-                    {
-                        id: 2,
-                        fullName: 'Oleg',
-                        status: "Writing",
-                        location: {city: "Warsaw", country: "Poland"},
-                        followed: false,
-                        ava: "https://www.ejin.ru/wp-content/uploads/2019/01/tzddik5uq3o.jpg"
-                    },
-                    {
-                        id: 3,
-                        fullName: 'Sveta',
-                        status: "Reading",
-                        location: {city: "Lviv", country: "Ukraine"},
-                        followed: true,
-                        ava: "https://www.ejin.ru/wp-content/uploads/2019/01/tzddik5uq3o.jpg"
-                    },
-                ]
-            )*/
-        }
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
+    let pages = []
+    for (let i=1; i <= pagesCount; i++) {
+        pages.push(i)
     }
+    let pagesForView = [pages[props.currentPage-2], pages[props.currentPage-1], pages[props.currentPage]]
     return (
         <div>
-            <button onClick={getUsers}>Get users</button>
+            <div>
+                {pagesForView.map(p => <span className={props.currentPage === p ? c.selected : ""}
+                                             onClick={e => props.onPageChange(p)}>
+                            {p + " "}
+                        </span>
+                )}
+            </div>
             {props.users.map(u =>
                 <div key={u.id}>
                     <span>
