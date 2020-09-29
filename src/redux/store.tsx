@@ -2,12 +2,12 @@ import {addPostActionCreator, profileReducer, updateNewPostTextTempActionCreator
 import {addMessageActionCreator, dialogsReducer, updateNewMessageTextActionCreator} from "./dialogs-reducer";
 import {sidebarReducer} from "./sidebar-reducer";
 import {
-    followAC,
-    setCurrentPageAC,
-    setTotalUsersCountAC,
-    setUsersAC,
-    toggleIsFetchingAC,
-    unfollowAC,
+    follow,
+    setCurrentPage,
+    setTotalUsersCount,
+    setUsers,
+    toggleIsFetching,
+    unfollow,
     UsersType
 } from "./users-reducer";
 
@@ -59,12 +59,12 @@ export type ActionsType =
     | ReturnType<typeof updateNewPostTextTempActionCreator>
     | ReturnType<typeof updateNewMessageTextActionCreator>
     | ReturnType<typeof addMessageActionCreator>
-    | ReturnType<typeof followAC>
-    | ReturnType<typeof unfollowAC>
-    | ReturnType<typeof setUsersAC>
-    | ReturnType<typeof setCurrentPageAC>
-    | ReturnType<typeof setTotalUsersCountAC>
-    | ReturnType<typeof toggleIsFetchingAC>
+    | ReturnType<typeof follow>
+    | ReturnType<typeof unfollow>
+    | ReturnType<typeof setUsers>
+    | ReturnType<typeof setCurrentPage>
+    | ReturnType<typeof setTotalUsersCount>
+    | ReturnType<typeof toggleIsFetching>
 /*
 
 let store = {
