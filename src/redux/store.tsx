@@ -13,6 +13,7 @@ import {
     unfollow,
     UsersType
 } from "./users-reducer";
+import {AuthType, setAuthUserData} from "./auth-reducer";
 
 export type PostType = {
     id: number
@@ -44,6 +45,7 @@ export type StateType = {
     dialogsPage: DialogsPageType
     sidebar: SidebarType
     usersPage: UsersType
+    auth: AuthType
 }
 export type StoreType = {
     _state: StateType
@@ -65,6 +67,7 @@ export type ActionsType =
     | ReturnType<typeof setTotalUsersCount>
     | ReturnType<typeof toggleIsFetching>
     | ReturnType<typeof setUserProfile>
+    | ReturnType<typeof setAuthUserData>
 
 /*
 

@@ -4,6 +4,7 @@ import {dialogsReducer} from "./dialogs-reducer";
 import {ProfilePageType, profileReducer} from "./profile-reducer";
 import {ActionsType, DialogsPageType, SidebarType} from "./store";
 import {usersReducer, UsersType} from "./users-reducer";
+import {authReducer} from "./auth-reducer";
 
 export type ReduxStoreType = Store<CombinedState<{ profilePage: ProfilePageType; dialogsPage: DialogsPageType; sidebar: SidebarType;
     usersPage: UsersType}>, ActionsType>
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
     sidebar: sidebarReducer,
-    usersPage: usersReducer
+    usersPage: usersReducer,
+    auth: authReducer
 })
 // непосредственно создаём store
 const store = createStore(rootReducer);
