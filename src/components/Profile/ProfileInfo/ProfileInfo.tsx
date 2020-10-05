@@ -19,6 +19,7 @@ function ProfileInfo(props: PropsType) {
             </div>
             <div className={c.descriptionBlock}>
                 <div><img src={props.profile.photos.large !== null ? props.profile.photos.large : ""}/></div>
+                <div>{props.profile.fullName}</div>
                 <div>Обо мне: {props.profile.aboutMe !== null ? props.profile.aboutMe : ""}</div>
                 <div>{props.profile.lookingForAJob ? "Ищу работу" : "Есть работа"}</div>
             </div>
