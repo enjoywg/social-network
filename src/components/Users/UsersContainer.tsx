@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
-import {ActionsType, StateType} from "../../redux/store";
-import React, {Dispatch} from "react";
+import {StateType} from "../../redux/store";
+import React from "react";
 import {
     follow,
     setCurrentPage,

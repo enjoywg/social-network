@@ -1,6 +1,9 @@
-import {addPostActionCreator, profileReducer, updateNewPostTextTempActionCreator} from "./profile-reducer";
-import {addMessageActionCreator, dialogsReducer, updateNewMessageTextActionCreator} from "./dialogs-reducer";
-import {sidebarReducer} from "./sidebar-reducer";
+import {
+    addPostActionCreator, ProfilePageType,
+    setUserProfile,
+    updateNewPostTextTempActionCreator
+} from "./profile-reducer";
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "./dialogs-reducer";
 import {
     follow,
     setCurrentPage,
@@ -30,10 +33,6 @@ export type FriendType = {
 }
 export type SidebarType = {
     friends: Array<FriendType>
-}
-export type ProfilePageType = {
-    posts: Array<PostType>
-    newPostTextTemp: string
 }
 export type DialogsPageType = {
     dialogs: Array<DialogType>
@@ -65,6 +64,8 @@ export type ActionsType =
     | ReturnType<typeof setCurrentPage>
     | ReturnType<typeof setTotalUsersCount>
     | ReturnType<typeof toggleIsFetching>
+    | ReturnType<typeof setUserProfile>
+
 /*
 
 let store = {

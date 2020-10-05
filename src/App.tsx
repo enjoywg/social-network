@@ -2,7 +2,6 @@ import React from 'react';
 import c from './App.module.css';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
 import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
@@ -11,6 +10,7 @@ import {Route} from 'react-router-dom';
 import {ReduxStoreType} from './redux/redux-store'
 import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
 import {UsersContainer} from "./components/Users/UsersContainer";
+import {ProfileContainer1} from "./components/Profile/ProfileContainer";
 
 type PropsType = {
     store: ReduxStoreType
@@ -22,7 +22,7 @@ function App(props: PropsType) {
                 <Header/>
                 <Navbar friends={state.sidebar.friends}/>
                 <div className={c.app_wrapper_content}>
-                    <Route path="/profile" render={ () => <Profile />}/>
+                    <Route path="/profile" render={ () => <ProfileContainer1 />}/>
                     <Route path="/dialogs" render={ () => <DialogsContainer/>}/>
                     <Route path="/users" render={ () => <UsersContainer/>}/>
                     <Route path="/news" render={ () => <News/>}/>

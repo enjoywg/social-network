@@ -2,6 +2,7 @@ import React from "react";
 import {UserType} from "../../redux/users-reducer";
 import c from "./Users.module.css";
 import ava from '../../assets/images/ava.jpg'
+import {NavLink} from "react-router-dom";
 
 type PropsType = {
     users: Array<UserType>
@@ -16,10 +17,10 @@ type PropsType = {
 export function Users(props: PropsType) {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
     let pages = []
-    for (let i=1; i <= pagesCount; i++) {
+    for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
-    let pagesForView = [pages[props.currentPage-2], pages[props.currentPage-1], pages[props.currentPage]]
+    let pagesForView = [pages[props.currentPage - 2], pages[props.currentPage - 1], pages[props.currentPage]]
     return (
         <div>
             <div>
@@ -32,7 +33,11 @@ export function Users(props: PropsType) {
             {props.users.map(u =>
                 <div key={u.id}>
                     <span>
-                        <div><img src={u.photos.small !== null ? u.photos.small : ava} className={c.ava} alt=""/></div>
+                        <div>
+                            <NavLink to={'/profile/' + u.id}>
+                            <img src={u.photos.small !== null ? u.photos.small : ava} className={c.ava} alt=""/>
+                            </NavLink>
+                        </div>
                         <div>
                             {u.followed
                                 ? <button onClick={() => {
